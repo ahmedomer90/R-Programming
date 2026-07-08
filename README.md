@@ -48,6 +48,6 @@ I am currently expanding my skills in:
 
 ## Contact
 
-GitHub: @ahmedomer030390-commits
+GitHub: @ahmedomer90
 
 Email: ahmedomer@hotmail.co.uk
