@@ -6,7 +6,7 @@ Identification of Copy Number Alteration (CNA) Heterogeneity in Cancer
 
 ## Overview
 
-This repository contains a reconstructed version of the computational workflow developed during my MSc Cancer dissertation.
+This GitHub project contains a reconstructed version of the computational workflow developed during my MSc Cancer dissertation.
 
 The original source code was stored on a previous computer that is no longer available. This project is therefore being rebuilt from the submitted dissertation, methodology, figures, and results.
 
@@ -19,3 +19,5 @@ The primary aim is to create a reproducible, well-documented R workflow that dem
 - Produce reproducible bioinformatics analyses
 - Document each analysis step clearly
 - Build a professional research portfolio
+
+This project is intended to demonstrate reproducible research practices using R and GitHub while preserving the scientific objectives of the original dissertation.
