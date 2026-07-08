@@ -50,4 +50,4 @@ I am currently expanding my skills in:
 
 GitHub: @ahmedomer90
 
-Email: ahmedomer@hotmail.co.uk
+Email: ahmedomer90@hotmail.co.uk
