@@ -3,7 +3,8 @@
 # Purpose: classify ASCAT copy-number fragments as LOH or non-LOH
 
 # Load packages
-library(tidyverse)
+library(dplyr)
+library(readr)
 
 # Import processed ASCAT segment data
 tracerx_ascat_seg <- readRDS("data/processed/tracerx_ascat_seg_imported.rds")
