@@ -1,3 +1,8 @@
+# -----------------------------------------------------------------------------
+# Original MSc Cancer Dissertation analysis (2021)
+# Refactored for reproducibility and GitHub portfolio (2026)
+# -----------------------------------------------------------------------------
+
 # 01_data_import.R
 # MSc Cancer Dissertation reconstruction
 # Purpose: import TRACERx ASCAT segment data and clinical data
@@ -11,8 +16,8 @@ clinical_file <- "data/raw/trx_clin_stab2.xls"
 # Load ASCAT RData file
 load(ascat_file)
 
-# Check which objects were loaded
-ls()
+# Display objects loaded from the .RData file
+print(ls())
 
 # Import clinical data
 clinical_data <- read_excel(clinical_file)
