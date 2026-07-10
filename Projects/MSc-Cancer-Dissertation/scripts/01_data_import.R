@@ -34,6 +34,7 @@ names(clinical_data)
 # Rename object for cleaner script naming
 tracerx_ascat_seg <- tracerx.ascat.seg
 
+# Create processed data directory if it does not exist
 dir.create("data/processed", recursive = TRUE, showWarnings = FALSE)
 
 # Save imported objects
