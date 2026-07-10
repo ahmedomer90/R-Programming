@@ -34,6 +34,8 @@ names(clinical_data)
 # Rename object for cleaner script naming
 tracerx_ascat_seg <- tracerx.ascat.seg
 
+dir.create("data/processed", recursive = TRUE, showWarnings = FALSE)
+
 # Save imported objects
 saveRDS(tracerx_ascat_seg, "data/processed/tracerx_ascat_seg_imported.rds")
 saveRDS(clinical_data, "data/processed/clinical_data_imported.rds")
