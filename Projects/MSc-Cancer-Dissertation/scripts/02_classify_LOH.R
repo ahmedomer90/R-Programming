@@ -1,35 +1,35 @@
+# -----------------------------------------------------------------------------
+# Original MSc Cancer Dissertation analysis (2021)
+# Refactored for reproducibility and GitHub portfolio (2026)
+# -----------------------------------------------------------------------------
+
 # 02_classify_LOH.R
-# MSc Cancer Dissertation reconstruction
 # Purpose: classify ASCAT copy-number fragments as LOH or non-LOH
 
-# Load packages
 library(dplyr)
-library(readr)
 
-# Import processed ASCAT segment data
+# Load imported ASCAT segment data
 tracerx_ascat_seg <- readRDS("data/processed/tracerx_ascat_seg_imported.rds")
 
-# Classify fragments as LOH or non-LOH
+# Classify fragments as LOH
 # LOH is defined as nMinor == 0
 tracerx_ascat_seg <- tracerx_ascat_seg %>%
   mutate(
     LOH = nMinor == 0
   )
 
-# Check LOH classification
+# Basic check
 table(tracerx_ascat_seg$LOH)
 
-# Create separate dataframes
+# Create separate LOH and non-LOH dataframes
 loh_segments <- tracerx_ascat_seg %>%
   filter(LOH == TRUE)
 
 non_loh_segments <- tracerx_ascat_seg %>%
   filter(LOH == FALSE)
 
-# Basic checks
-nrow(tracerx_ascat_seg)
-nrow(loh_segments)
-nrow(non_loh_segments)
+# Create processed data directory if it does not exist
+dir.create("data/processed", recursive = TRUE, showWarnings = FALSE)
 
 # Save outputs
 saveRDS(tracerx_ascat_seg, "data/processed/tracerx_ascat_seg_LOH_classified.rds")
