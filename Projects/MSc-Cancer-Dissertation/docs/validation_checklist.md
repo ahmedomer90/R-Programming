@@ -18,7 +18,7 @@ Validation criteria:
 | 06_cochran_armitage_test.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 07_chromosome_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 08_sample_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 09_... | ⬜ | ⬜ | ⬜ | Pending |
+| 09_fragment_size_analysis.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 10_... | ⬜ | ⬜ | ⬜ | Pending |
 | 11_... | ⬜ | ⬜ | ⬜ | Pending |
 | 12_... | ⬜ | ⬜ | ⬜ | Pending |
@@ -102,3 +102,31 @@ Validation criteria:
   - Proportions sum to **1** for all 24 chromosomes.
 - Output summary files were generated successfully.
 
+### Script 08 – Sample Clonality Summary
+
+- Summarised LOH clonality counts and proportions for each tumour-region sample.
+- Created separate datasets containing:
+  - Clonal LOH fragments
+  - Subclonal LOH fragments
+  - Rare `"none"` clonality fragments
+- Validation confirmed:
+  - Total LOH fragments = **16,525**
+  - Clonal fragments = **8,073**
+  - Subclonal fragments = **8,442**
+  - `"None"` fragments = **10**
+  - Total tumour-region samples = **434**
+  - Clonality proportions sum to **1** for every sample.
+- Processed datasets and summary tables were generated successfully.
+
+### Script 09 – Fragment Size Analysis
+
+- Calculated LOH fragment sizes using the original MSc method:
+  - `fragment_size_bp = endpos - startpos`
+- Validation confirmed:
+  - Total LOH fragments analysed = **16,525**
+  - Negative fragment sizes = **0**
+  - Zero-length fragments (`startpos == endpos`) = **339**
+- Category and category-by-clonality summaries accounted for all **16,525** LOH fragments.
+- Processed datasets and summary tables were generated successfully.
+
+- 
