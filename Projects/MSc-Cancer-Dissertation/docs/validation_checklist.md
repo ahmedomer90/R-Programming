@@ -19,7 +19,7 @@ Validation criteria:
 | 07_chromosome_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 08_sample_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 09_fragment_size_analysis.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 10_... | ⬜ | ⬜ | ⬜ | Pending |
+| 10_sample_category_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 11_... | ⬜ | ⬜ | ⬜ | Pending |
 | 12_... | ⬜ | ⬜ | ⬜ | Pending |
 | 13_... | ⬜ | ⬜ | ⬜ | Pending |
@@ -129,4 +129,15 @@ Validation criteria:
 - Category and category-by-clonality summaries accounted for all **16,525** LOH fragments.
 - Processed datasets and summary tables were generated successfully.
 
-- 
+### Script 10 – Sample Category Summary
+
+- Summarised the number of LOH fragments in each category for every tumour-region sample.
+- Included zero-count sample-category combinations.
+- Validation confirmed:
+  - Distinct tumour-region samples = **434**
+  - Sample-category combinations = **3,472**
+  - Total LOH fragments = **16,525**
+  - Category totals matched the validated results from Script 4.
+- Processed and CSV output files were generated successfully.
+
+
