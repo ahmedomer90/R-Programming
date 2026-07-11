@@ -15,7 +15,7 @@ Validation criteria:
 | 03_LOH_clonality.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 04_LOH_categories.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 05_category_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 06_... | ⬜ | ⬜ | ⬜ | Pending |
+| 06_cochran_armitage_test.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 07_... | ⬜ | ⬜ | ⬜ | Pending |
 | 08_... | ⬜ | ⬜ | ⬜ | Pending |
 | 09_... | ⬜ | ⬜ | ⬜ | Pending |
@@ -82,3 +82,13 @@ Validation criteria:
   - Total LOH fragments = **16,525**
   - Category proportions sum to **1** for every category.
   - Output files successfully generated.
+
+### Script 06 – Cochran-Armitage Trend Test
+
+- Tested for a trend in clonality across the eight ordered LOH categories.
+- Excluded the 10 `"none"` cases because the test requires a two-column outcome table.
+- Validation result:
+  - Z statistic: **28.885**
+  - p-value: **1.853213 × 10⁻183**
+- Confirmed that the test input table and result files were generated successfully.
+
