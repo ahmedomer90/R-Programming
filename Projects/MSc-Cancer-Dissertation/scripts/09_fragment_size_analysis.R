@@ -152,7 +152,6 @@ write_csv(
 # -----------------------------------------------------------------------------
 # Validation note:
 # Fragment size is calculated as endpos - startpos to preserve the original
-# MSc method. During validation, 339 LOH fragments had startpos == endpos,
-# resulting in a calculated fragment size of zero. No negative fragment sizes
-# were observed.
+# MSc method. Consequently, single-position intervals where startpos equals
+# endpos have a calculated fragment size of zero.
 # -----------------------------------------------------------------------------
