@@ -17,7 +17,7 @@ Validation criteria:
 | 05_category_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 06_cochran_armitage_test.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 07_chromosome_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 08_... | ⬜ | ⬜ | ⬜ | Pending |
+| 08_sample_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 09_... | ⬜ | ⬜ | ⬜ | Pending |
 | 10_... | ⬜ | ⬜ | ⬜ | Pending |
 | 11_... | ⬜ | ⬜ | ⬜ | Pending |
