@@ -25,6 +25,7 @@ Validation criteria:
 | 13_gene_annotation.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 14_cancer_gene_filtering.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 15_visualisation_LOH_patterns.R | ✅ | ✅ | ✅ | ✅ Validated |
+| 16_export_session_info.R | ✅ | ✅ | ✅ | ✅ Validated |
 
 ---
 
@@ -206,5 +207,16 @@ Validation criteria:
   - Figures were visually inspected and confirmed to display the expected LOH patterns.
 - Figures were saved in the `figures/` directory for downstream reporting and publication.
 
+### Script 16 – Export Session Information
 
-
+- Exported the complete R session information to support computational reproducibility.
+- Validation confirmed:
+  - `results/sessionInfo.txt` was created successfully.
+  - Output file size = **1,419 bytes**.
+  - The file records the R version, operating system, platform, locale, time zone, attached packages and loaded namespaces.
+- The exported environment included:
+  - R **4.5.3**
+  - Apple Silicon platform
+  - macOS Tahoe 26.3
+  - Europe/London time zone
+- This script completes the reproducible analysis pipeline.
