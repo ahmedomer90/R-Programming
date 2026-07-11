@@ -20,7 +20,7 @@ Validation criteria:
 | 08_sample_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 09_fragment_size_analysis.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 10_sample_category_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 11_... | ⬜ | ⬜ | ⬜ | Pending |
+| 11_sample_category_fragment_size_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 12_... | ⬜ | ⬜ | ⬜ | Pending |
 | 13_... | ⬜ | ⬜ | ⬜ | Pending |
 | 14_... | ⬜ | ⬜ | ⬜ | Pending |
@@ -138,6 +138,19 @@ Validation criteria:
   - Sample-category combinations = **3,472**
   - Total LOH fragments = **16,525**
   - Category totals matched the validated results from Script 4.
+- Processed and CSV output files were generated successfully.
+
+### Script 11 – Sample-Category Fragment Size Summary
+
+- Summarised total LOH fragment size for every tumour-region sample and LOH category.
+- Included missing sample-category combinations with zero fragment counts and zero total fragment size.
+- Validation confirmed:
+  - Distinct tumour-region samples = **434**
+  - Sample-category combinations = **3,472**
+  - Total LOH fragment count = **16,525**
+  - Total LOH fragment size = **295,381,177,628 bp**
+  - Zero-total sample-category combinations = **1,303**
+- The completed summary reproduced the exact total fragment size from the validated LOH dataset.
 - Processed and CSV output files were generated successfully.
 
 
