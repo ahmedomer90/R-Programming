@@ -1,42 +1,60 @@
-# 04_LOH_categories.R
-# MSc Cancer Dissertation reconstruction
-# Purpose: classify LOH fragments into copy-number categories based on nMajor
+# -----------------------------------------------------------------------------
+# Original MSc Cancer Dissertation analysis (2021)
+# Refactored for reproducibility and GitHub portfolio (2026)
+# -----------------------------------------------------------------------------
 
-# Load packages
+# 04_LOH_categories.R
+# Purpose: classify ASCAT fragments into eight LOH categories based on nMajor
+
 library(dplyr)
 
-# Load LOH segments with clonality classification
-loh_segments <- readRDS("data/processed/loh_segments_clonality.rds")
+# Load the full ASCAT dataset with LOH and clonality classifications
+tracerx_ascat_seg <- readRDS(
+  "data/processed/tracerx_ascat_seg_clonality.rds"
+)
 
-# Classify LOH categories based on nMajor
-# Category 1: nMajor = 0
-# Category 2: nMajor = 1
-# Category 3: nMajor = 2
-# Category 4: nMajor = 3
-# Category 5: nMajor = 4
-# Category 6: nMajor = 5
-# Category 7: nMajor = 6
-# Category 8: nMajor >= 7
+# Confirm required columns exist
+required_columns <- c("nMajor", "LOH")
 
-loh_segments <- loh_segments %>%
+if (!all(required_columns %in% names(tracerx_ascat_seg))) {
+  stop("Required columns 'nMajor' and/or 'LOH' were not found.")
+}
+
+# Create LOH categories using the original MSc logic
+tracerx_ascat_seg <- tracerx_ascat_seg %>%
   mutate(
-    LOH_category = case_when(
-      nMajor == 0 ~ "Category 1",
-      nMajor == 1 ~ "Category 2",
-      nMajor == 2 ~ "Category 3",
-      nMajor == 3 ~ "Category 4",
-      nMajor == 4 ~ "Category 5",
-      nMajor == 5 ~ "Category 6",
-      nMajor == 6 ~ "Category 7",
-      nMajor >= 7 ~ "Category 8",
-      TRUE ~ NA_character_
-    )
+    category = nMajor + 1,
+    category = if_else(category >= 8, 8, category),
+    category = if_else(LOH, as.character(category), "none")
   )
 
-# Check category distribution
-table(loh_segments$LOH_category, useNA = "ifany")
+# Keep LOH fragments only
+loh_segments <- tracerx_ascat_seg %>%
+  filter(LOH == TRUE)
 
-# Save output
+# Create separate dataframes for each category
+loh_category_1 <- loh_segments %>% filter(nMajor == 0)
+loh_category_2 <- loh_segments %>% filter(nMajor == 1)
+loh_category_3 <- loh_segments %>% filter(nMajor == 2)
+loh_category_4 <- loh_segments %>% filter(nMajor == 3)
+loh_category_5 <- loh_segments %>% filter(nMajor == 4)
+loh_category_6 <- loh_segments %>% filter(nMajor == 5)
+loh_category_7 <- loh_segments %>% filter(nMajor == 6)
+loh_category_8 <- loh_segments %>% filter(nMajor >= 7)
+
+# Summary checks
+table(tracerx_ascat_seg$category, useNA = "ifany")
+table(loh_segments$category, useNA = "ifany")
+
+# Create processed data directory if needed
+dir.create("data/processed", recursive = TRUE, showWarnings = FALSE)
+
+# Save outputs
+saveRDS(
+  tracerx_ascat_seg,
+  "data/processed/tracerx_ascat_seg_categories.rds"
+)
+
 saveRDS(
   loh_segments,
   "data/processed/loh_segments_categories.rds"
