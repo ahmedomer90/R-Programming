@@ -16,7 +16,7 @@ Validation criteria:
 | 04_LOH_categories.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 05_category_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 06_cochran_armitage_test.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 07_... | ⬜ | ⬜ | ⬜ | Pending |
+| 07_chromosome_clonality_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 08_... | ⬜ | ⬜ | ⬜ | Pending |
 | 09_... | ⬜ | ⬜ | ⬜ | Pending |
 | 10_... | ⬜ | ⬜ | ⬜ | Pending |
@@ -91,4 +91,14 @@ Validation criteria:
   - Z statistic: **28.885**
   - p-value: **1.853213 × 10⁻183**
 - Confirmed that the test input table and result files were generated successfully.
+
+### Script 07 – Chromosome Clonality Summary
+
+- Summarised clonality counts and proportions for each chromosome.
+- Analysed both the complete ASCAT dataset and the LOH-only subset.
+- Validation confirmed:
+  - Total complete fragments = **55,515**
+  - Total LOH fragments = **16,525**
+  - Proportions sum to **1** for all 24 chromosomes.
+- Output summary files were generated successfully.
 
