@@ -142,7 +142,7 @@ Validation criteria:
 
 ### Script 11 – Sample-Category Fragment Size Summary
 
-- Summarised total LOH fragment size for every tumour-region sample and LOH category.
+- Summarised the total LOH fragment size for every tumour-region sample and LOH category.
 - Included missing sample-category combinations with zero fragment counts and zero total fragment size.
 - Validation confirmed:
   - Distinct tumour-region samples = **434**
@@ -151,6 +151,8 @@ Validation criteria:
   - Total LOH fragment size = **295,381,177,628 bp**
   - Zero-total sample-category combinations = **1,303**
 - The completed summary reproduced the exact total fragment size from the validated LOH dataset.
-- Processed and CSV output files were generated successfully.
+- Processed RDS and CSV output files were generated successfully.
+
+
 
 
