@@ -3,7 +3,7 @@
 # Refactored for reproducibility and GitHub portfolio (2026)
 # -----------------------------------------------------------------------------
 
-# 11_sample_category_fragment_size_summary.R
+# 11_high_prevalence_LOH_regions.R
 # Purpose: summarise total LOH fragment size for every
 # sample-category combination
 
