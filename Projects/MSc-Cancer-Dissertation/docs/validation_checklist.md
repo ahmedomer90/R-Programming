@@ -24,7 +24,7 @@ Validation criteria:
 | 12_high_prevalence_LOH_regions.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 13_gene_annotation.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 14_cancer_gene_filtering.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 15_... | ⬜ | ⬜ | ⬜ | Pending |
+| 15_visualisation_LOH_patterns.R | ✅ | ✅ | ✅ | ✅ Validated |
 
 ---
 
@@ -192,7 +192,19 @@ Validation criteria:
   - Matched genes absent from the Cancer Gene Census = **57**
 - All expected processed RDS and CSV outputs were generated successfully.
 
+### Script 15 – Visualisation of LOH Patterns
 
+- Generated publication-quality figures illustrating:
+  - LOH category distribution
+  - Clonality proportions by LOH category
+  - Clonality proportions by chromosome
+  - Fragment-size distributions by LOH category
+  - Clonality proportions across tumour-region samples
+- Validation confirmed:
+  - All five expected PNG files were generated successfully.
+  - All figure files had non-zero file sizes.
+  - Figures were visually inspected and confirmed to display the expected LOH patterns.
+- Figures were saved in the `figures/` directory for downstream reporting and publication.
 
 
 
