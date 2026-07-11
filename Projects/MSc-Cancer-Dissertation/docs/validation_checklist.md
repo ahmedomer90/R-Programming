@@ -21,7 +21,7 @@ Validation criteria:
 | 09_fragment_size_analysis.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 10_sample_category_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 11_sample_category_fragment_size_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 12_... | ⬜ | ⬜ | ⬜ | Pending |
+| 12_high_prevalence_LOH_regions.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 13_... | ⬜ | ⬜ | ⬜ | Pending |
 | 14_... | ⬜ | ⬜ | ⬜ | Pending |
 | 15_... | ⬜ | ⬜ | ⬜ | Pending |
@@ -152,6 +152,19 @@ Validation criteria:
   - Zero-total sample-category combinations = **1,303**
 - The completed summary reproduced the exact total fragment size from the validated LOH dataset.
 - Processed RDS and CSV output files were generated successfully.
+
+### Script 12 – High-Prevalence LOH Regions
+
+- Grouped LOH fragments by chromosome, category, start position and end position.
+- Counted the number of distinct tumour-region samples containing each identical genomic interval.
+- Validation confirmed:
+  - Unique LOH region-category combinations = **13,193**
+  - Maximum sample prevalence for a region = **59**
+  - Regions present in at least two samples = **1,610**
+- The processed RDS and CSV output files were generated successfully.
+
+
+
 
 
 
