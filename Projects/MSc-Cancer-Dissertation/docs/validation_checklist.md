@@ -23,7 +23,7 @@ Validation criteria:
 | 11_sample_category_fragment_size_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 12_high_prevalence_LOH_regions.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 13_gene_annotation.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 14_... | ⬜ | ⬜ | ⬜ | Pending |
+| 14_cancer_gene_filtering.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 15_... | ⬜ | ⬜ | ⬜ | Pending |
 
 ---
@@ -177,6 +177,20 @@ Validation criteria:
   - Unique HGNC gene symbols = **40,935**
   - Annotated and unannotated region counts together reproduced all **13,193** input regions.
 - Processed RDS and CSV output files were generated successfully.
+
+### Script 14 – Cancer Gene Filtering
+
+- Filtered LOH-affected annotated genes using the curated `driverGenes_120516_unique.txt` reference list.
+- Added Cancer Gene Census annotations where available.
+- Retained the full region–gene table and created separate one-row-per-gene and gene-level summary outputs.
+- Validation confirmed:
+  - Curated driver genes = **641**
+  - Unique Cancer Gene Census genes = **723**
+  - Matched LOH driver-gene records = **47,940**
+  - Unique matched LOH driver genes = **604**
+  - Matched genes present in the Cancer Gene Census = **547**
+  - Matched genes absent from the Cancer Gene Census = **57**
+- All expected processed RDS and CSV outputs were generated successfully.
 
 
 
