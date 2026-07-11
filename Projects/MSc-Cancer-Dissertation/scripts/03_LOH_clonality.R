@@ -46,9 +46,16 @@ classify_LOH_clonality <- function(overlapping_fragments) {
 clonality_vector <- character(nrow(tracerx_ascat_seg))
 
 for (i in seq_len(nrow(tracerx_ascat_seg))) {
+  
   clonality_vector[i] <- classify_LOH_clonality(
     get_overlapping_fragments(i, tracerx_ascat_seg)
   )
+  
+  # Display progress every 1,000 fragments
+  if (i %% 1000 == 0) {
+    message("Processed ", i, " of ", nrow(tracerx_ascat_seg))
+  }
+  
 }
 
 # Add clonality column
@@ -67,3 +74,20 @@ dir.create("data/processed", recursive = TRUE, showWarnings = FALSE)
 # Save outputs
 saveRDS(tracerx_ascat_seg, "data/processed/tracerx_ascat_seg_clonality.rds")
 saveRDS(loh_segments, "data/processed/loh_segments_clonality.rds")
+
+# -----------------------------------------------------------------------------
+# Validation note:
+# Rare single-position genomic intervals (startpos == endpos) may receive a
+# clonality classification of "none" because no overlapping interval is
+# identified using the strict overlap criteria inherited from the original
+# MSc analysis. During validation, this affected 10 of 16,525 LOH fragments
+# (~0.06%). This behaviour reflects the original methodology and was retained
+# to preserve consistency with the MSc analysis.
+# -----------------------------------------------------------------------------
+
+# Note:
+# Rare single-position genomic intervals (startpos == endpos)
+# may receive a clonality classification of "none"
+# because no overlapping interval is identified using the
+# strict overlap criteria inherited from the original MSc analysis.
+
