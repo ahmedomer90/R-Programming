@@ -22,7 +22,7 @@ Validation criteria:
 | 10_sample_category_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 11_sample_category_fragment_size_summary.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 12_high_prevalence_LOH_regions.R | ✅ | ✅ | ✅ | ✅ Validated |
-| 13_... | ⬜ | ⬜ | ⬜ | Pending |
+| 13_gene_annotation.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 14_... | ⬜ | ⬜ | ⬜ | Pending |
 | 15_... | ⬜ | ⬜ | ⬜ | Pending |
 
@@ -163,7 +163,20 @@ Validation criteria:
   - Regions present in at least two samples = **1,610**
 - The processed RDS and CSV output files were generated successfully.
 
+### Script 13 – Gene Annotation
 
+- Annotated high-prevalence LOH regions with overlapping genes from Ensembl BioMart.
+- Used chromosome-level batched Ensembl queries and calculated interval overlaps locally with `IRanges`.
+- Converted ASCAT chromosome numbers 23 and 24 to Ensembl chromosomes `X` and `Y`.
+- Standardised chromosome data types and used explicit `dplyr::select()` to avoid namespace conflicts.
+- Validation confirmed:
+  - Input LOH regions = **13,193**
+  - Regions with at least one HGNC gene = **12,694**
+  - Regions without an HGNC gene = **499**
+  - Annotated region–gene records = **3,171,328**
+  - Unique HGNC gene symbols = **40,935**
+  - Annotated and unannotated region counts together reproduced all **13,193** input regions.
+- Processed RDS and CSV output files were generated successfully.
 
 
 
