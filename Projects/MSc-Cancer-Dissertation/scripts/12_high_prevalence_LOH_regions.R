@@ -3,24 +3,24 @@
 # Refactored for reproducibility and GitHub portfolio (2026)
 # -----------------------------------------------------------------------------
 
-# 11_high_prevalence_LOH_regions.R
-# Purpose: summarise total LOH fragment size for every
-# sample-category combination
+# 12_high_prevalence_LOH_regions.R
+# Purpose: identify recurrent (high-prevalence) LOH regions across samples
 
 library(dplyr)
-library(tidyr)
 library(readr)
 
-# Load validated LOH dataset containing fragment sizes
+# Load validated LOH dataset
 loh_segments <- readRDS(
   "data/processed/loh_segments_fragment_sizes.rds"
 )
 
 # Confirm required columns exist
 required_columns <- c(
-  "sample",
+  "chr",
+  "startpos",
+  "endpos",
   "category",
-  "fragment_size_bp"
+  "sample"
 )
 
 if (!all(required_columns %in% names(loh_segments))) {
@@ -30,74 +30,48 @@ if (!all(required_columns %in% names(loh_segments))) {
   )
 }
 
-# Calculate total fragment size for observed sample-category combinations
-sample_category_fragment_size_summary <- loh_segments %>%
-  group_by(sample, category) %>%
+# Count how many tumour samples contain each identical LOH region
+high_prevalence_regions <- loh_segments %>%
+  group_by(
+    chr,
+    category,
+    startpos,
+    endpos
+  ) %>%
   summarise(
+    sample_count = n_distinct(sample),
     fragment_count = n(),
-    total_fragment_size_bp = sum(
-      fragment_size_bp,
-      na.rm = TRUE
-    ),
-    .groups = "drop"
-  )
-
-# Add missing sample-category combinations and assign zero values
-sample_category_fragment_size_complete <-
-  sample_category_fragment_size_summary %>%
-  complete(
-    sample = unique(loh_segments$sample),
-    category = sort(unique(loh_segments$category)),
-    fill = list(
-      fragment_count = 0,
-      total_fragment_size_bp = 0
-    )
-  ) %>%
-  arrange(sample, as.integer(category))
-
-# Calculate fragment size in megabases
-sample_category_fragment_size_complete <-
-  sample_category_fragment_size_complete %>%
-  mutate(
-    total_fragment_size_mb =
-      total_fragment_size_bp / 1e6
-  )
-
-# Summarise total fragment size by category
-category_total_fragment_size <- 
-  sample_category_fragment_size_complete %>%
-  group_by(category) %>%
-  summarise(
-    fragment_count = sum(fragment_count),
-    total_fragment_size_bp = sum(total_fragment_size_bp),
-    total_fragment_size_mb = sum(total_fragment_size_mb),
+    total_fragment_size_bp = first(fragment_size_bp),
     .groups = "drop"
   ) %>%
-  arrange(as.integer(category))
+  arrange(
+    desc(sample_count),
+    chr,
+    startpos
+  )
 
-# Validation output
-print(sample_category_fragment_size_complete)
-print(category_total_fragment_size, n = Inf)
-
+# Validation summaries
 cat(
-  "Number of sample-category combinations:",
-  nrow(sample_category_fragment_size_complete),
+  "Unique genomic regions:",
+  nrow(high_prevalence_regions),
   "\n"
 )
 
 cat(
-  "Total fragment count:",
-  sum(sample_category_fragment_size_complete$fragment_count),
+  "Maximum sample prevalence:",
+  max(high_prevalence_regions$sample_count),
   "\n"
 )
 
 cat(
-  "Total fragment size in base pairs:",
-  sum(sample_category_fragment_size_complete$total_fragment_size_bp),
+  "Regions present in two or more samples:",
+  sum(high_prevalence_regions$sample_count >= 2),
   "\n"
 )
 
-# Create output directories if needed
+print(high_prevalence_regions, n = 20)
+
+# Create output directories
 dir.create(
   "data/processed",
   recursive = TRUE,
@@ -110,26 +84,21 @@ dir.create(
   showWarnings = FALSE
 )
 
-# Save processed summary
+# Save processed object
 saveRDS(
-  sample_category_fragment_size_complete,
-  "data/processed/sample_category_fragment_size_summary.rds"
+  high_prevalence_regions,
+  "data/processed/high_prevalence_LOH_regions.rds"
 )
 
-# Export readable result tables
+# Export readable table
 write_csv(
-  sample_category_fragment_size_complete,
-  "results/sample_category_fragment_size_summary.csv"
-)
-
-write_csv(
-  category_total_fragment_size,
-  "results/category_total_fragment_size.csv"
+  high_prevalence_regions,
+  "results/high_prevalence_LOH_regions.csv"
 )
 
 # -----------------------------------------------------------------------------
 # Validation note:
-# Missing sample-category combinations are retained with fragment counts and
-# total fragment sizes set to zero, following the intention of the original
-# MSc workflow.
+# LOH regions are grouped by chromosome, category, genomic start position and
+# genomic end position. Each region is summarised by the number of distinct
+# tumour-region samples containing that genomic interval.
 # -----------------------------------------------------------------------------
