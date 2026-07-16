@@ -31,6 +31,7 @@ Validation criteria:
 | 19_figure7_fragment_size_boxplot.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 20_figure8_sample_LOH_percentage.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 21_figure9_sample_category_proportions.R | ✅ | ✅ | ✅ | ✅ Validated |
+| 22_figure10_chromosome_clonality_area.R | ✅ | ✅ | ✅ | ✅ Validated |
 
 ---
 
@@ -318,6 +319,22 @@ Validation criteria:
   - `figures/Figure9_sample_category_proportions.png`
   - `figures/Figure9_sample_category_proportions.pdf`
 
+### Script 22 – Figure 10: Chromosome Clonality Area Chart
 
+- Reproduced Dissertation Figure 10 as a stacked area chart showing the proportions of clonal and subclonal LOH fragments across chromosomes.
+- Displayed subclonal LOH in green and clonal LOH in red.
+- Excluded the 10 rare `"none"` classifications arising from strict interval-overlap edge cases.
+- Validation confirmed:
+  - Chromosomes represented = **24**
+  - Clonality classes plotted = **2**
+  - Clonal LOH fragments = **8,073**
+  - Subclonal LOH fragments = **8,442**
+  - Total plotted LOH fragments = **16,515**
+  - Excluded `"none"` fragments = **10**
+  - Clonal and subclonal proportions summed to **1** for every chromosome.
+  - PNG and PDF outputs were generated successfully with non-zero file sizes.
+- Outputs were saved as:
+  - `figures/Figure10_chromosome_clonality_area.png`
+  - `figures/Figure10_chromosome_clonality_area.pdf`
 
 
