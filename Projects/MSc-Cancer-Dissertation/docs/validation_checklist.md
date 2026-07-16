@@ -29,6 +29,7 @@ Validation criteria:
 | 17_figure4_major_allele_distribution.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 18_figure6_sample_category_heatmap.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 19_figure7_fragment_size_boxplot.R | ✅ | ✅ | ✅ | ✅ Validated |
+| 20_figure8_sample_LOH_percentage.R | ✅ | ✅ | ✅ | ✅ Validated |
 
 ---
 
@@ -279,5 +280,25 @@ Validation criteria:
 - Outputs were saved as:
   - `figures/Figure7_fragment_size_boxplot.png`
   - `figures/Figure7_fragment_size_boxplot.pdf`
+
+### Script 20 – Figure 8: Sample LOH Percentage
+
+- Reproduced Dissertation Figure 8 as a stacked bar chart showing tumour-region samples in descending order of their contribution to all LOH fragments.
+- Each bar represents one tumour-region sample, with coloured sections showing LOH categories 1–8.
+- Validation confirmed:
+  - Tumour-region samples = **434**
+  - LOH categories = **8**
+  - Sample-category combinations = **3,472**
+  - Total LOH fragments = **16,525**
+  - Sum of sample percentages = **1**
+  - Highest sample contribution = **0.89%**
+  - Lowest sample contribution = **0.00605%**
+  - Descending sample order was confirmed.
+- PNG and PDF outputs were generated successfully with non-zero file sizes.
+- Outputs were saved as:
+  - `figures/Figure8_sample_LOH_percentage.png`
+  - `figures/Figure8_sample_LOH_percentage.pdf`
  
-  
+
+
+
