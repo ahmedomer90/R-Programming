@@ -13,3 +13,7 @@ data/raw/
 data/processed/
 
 results/high_prevalence_LOH_gene_annotations.csv
+
+.Rproj.user/
+.DS_Store
+
