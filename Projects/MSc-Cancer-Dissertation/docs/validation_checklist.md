@@ -32,6 +32,7 @@ Validation criteria:
 | 20_figure8_sample_LOH_percentage.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 21_figure9_sample_category_proportions.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 22_figure10_chromosome_clonality_area.R | ✅ | ✅ | ✅ | ✅ Validated |
+| 23_figure11_chromosome_clonality_counts_area.R | ✅ | ✅ | ✅ | ✅ Validated |
 
 ---
 
@@ -337,4 +338,23 @@ Validation criteria:
   - `figures/Figure10_chromosome_clonality_area.png`
   - `figures/Figure10_chromosome_clonality_area.pdf`
 
+### Script 23 – Figure 11: Chromosome Clonality Counts Area Chart
 
+- Reproduced Dissertation Figure 11 as a stacked area chart showing the number of clonal and subclonal LOH fragments across chromosomes.
+- Displayed subclonal LOH in green and clonal LOH in red.
+- Excluded the 10 rare `"none"` classifications caused by strict interval-overlap edge cases.
+- Validation confirmed:
+  - Chromosomes represented = **24**
+  - Clonality classes plotted = **2**
+  - Clonal LOH fragments = **8,073**
+  - Subclonal LOH fragments = **8,442**
+  - Total plotted LOH fragments = **16,515**
+  - Excluded `"none"` fragments = **10**
+  - Maximum chromosome total = **1,246**
+  - Minimum chromosome total = **282**
+  - PNG and PDF outputs were generated successfully with non-zero file sizes.
+- Outputs were saved as:
+  - `figures/Figure11_chromosome_clonality_counts_area.png`
+  - `figures/Figure11_chromosome_clonality_counts_area.pdf`
+  
+  
