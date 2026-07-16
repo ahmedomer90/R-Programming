@@ -108,11 +108,18 @@ dissertation_theme <- theme_gray(
     axis.text = element_text(
       size = 9
     ),
+    plot.tag = element_text(
+      size = 22,
+      face = "bold",
+      hjust = 0,
+      vjust = 1
+    ),
+    plot.tag.position = "topleft",
     plot.margin = margin(
-      t = 8,
-      r = 8,
+      t = 12,
+      r = 10,
       b = 8,
-      l = 8
+      l = 10
     )
   )
 
@@ -132,11 +139,14 @@ plot_A <- ggplot(
     linewidth = 0.35
   ) +
   scale_x_continuous(
-    limits = c(-1, 85),
     breaks = c(0, 20, 40, 60, 80),
     expand = expansion(mult = c(0, 0.02))
   ) +
+  coord_cartesian(
+    xlim = c(-1, 85)
+  ) +
   labs(
+    tag = "A",
     title = "Copy number of Major alleles in all LOH samples",
     x = "nMajor",
     y = "count"
@@ -159,11 +169,14 @@ plot_B <- ggplot(
     linewidth = 0.35
   ) +
   scale_x_continuous(
-    limits = c(-1, 100),
     breaks = c(0, 25, 50, 75, 100),
     expand = expansion(mult = c(0, 0.02))
   ) +
+  coord_cartesian(
+    xlim = c(-1, 100)
+  ) +
   labs(
+    tag = "B",
     title = "Copy number of Major alleles",
     x = "nMajor",
     y = "count"
@@ -186,11 +199,14 @@ plot_C <- ggplot(
     linewidth = 0.35
   ) +
   scale_x_continuous(
-    limits = c(-1, 100),
     breaks = c(0, 25, 50, 75, 100),
     expand = expansion(mult = c(0, 0.02))
   ) +
+  coord_cartesian(
+    xlim = c(-1, 100)
+  ) +
   labs(
+    tag = "C",
     title = "Copy number of Major alleles in non-LOH fragments",
     x = "nMajor",
     y = "count"
@@ -198,82 +214,25 @@ plot_C <- ggplot(
   dissertation_theme
 
 # -----------------------------------------------------------------------------
-# Assemble the original-style layout:
+# Assemble the dissertation-style layout
 #
 #               A
 #
 #          B         C
 # -----------------------------------------------------------------------------
 
-top_row <- plot_spacer() + plot_A + plot_spacer() +
+figure_design <- "
+#AA#
+BBCC
+"
+
+figure_4 <-
+  plot_A +
+  plot_B +
+  plot_C +
   plot_layout(
-    widths = c(0.22, 0.56, 0.22)
-  )
-
-bottom_row <- plot_B + plot_C +
-  plot_layout(
-    widths = c(1, 1)
-  )
-
-figure_4 <- top_row / bottom_row +
-  plot_layout(
-    heights = c(0.95, 1.05)
-  ) +
-  plot_annotation(
-    tag_levels = "A",
-    theme = theme(
-      plot.tag = element_text(
-        size = 22,
-        face = "bold"
-      )
-    )
-  )
-
-# Because the spacer-based layout would otherwise tag the spacers,
-# manually add panel labels to each actual plot.
-plot_A <- plot_A +
-  labs(tag = "A") +
-  theme(
-    plot.tag = element_text(
-      size = 22,
-      face = "bold"
-    ),
-    plot.tag.position = c(-0.12, 1.04)
-  )
-
-plot_B <- plot_B +
-  labs(tag = "B") +
-  theme(
-    plot.tag = element_text(
-      size = 22,
-      face = "bold"
-    ),
-    plot.tag.position = c(-0.09, 1.08)
-  )
-
-plot_C <- plot_C +
-  labs(tag = "C") +
-  theme(
-    plot.tag = element_text(
-      size = 22,
-      face = "bold"
-    ),
-    plot.tag.position = c(-0.09, 1.08)
-  )
-
-top_row <- plot_spacer() + plot_A + plot_spacer() +
-  plot_layout(
-    widths = c(0.22, 0.56, 0.22)
-  )
-
-bottom_row <- plot_B + plot_C +
-  plot_layout(
-    widths = c(1, 1)
-  )
-
-figure_4 <- top_row / bottom_row +
-  plot_layout(
-    heights = c(0.95, 1.05)
+    design = figure_design,
+    heights = c(1, 1)
   )
 
 # -----------------------------------------------------------------------------
@@ -286,11 +245,14 @@ dir.create(
   showWarnings = FALSE
 )
 
-figure_file <-
+figure_png <-
   "figures/Figure4_major_allele_distribution.png"
 
+figure_pdf <-
+  "figures/Figure4_major_allele_distribution.pdf"
+
 ggsave(
-  filename = figure_file,
+  filename = figure_png,
   plot = figure_4,
   width = 13,
   height = 9,
@@ -299,10 +261,8 @@ ggsave(
   bg = "white"
 )
 
-# Also save a PDF copy for lossless scaling
 ggsave(
-  filename =
-    "figures/Figure4_major_allele_distribution.pdf",
+  filename = figure_pdf,
   plot = figure_4,
   width = 13,
   height = 9,
@@ -342,25 +302,35 @@ print(
   n = Inf
 )
 
-cat(
-  "PNG created:",
-  file.exists(figure_file),
-  "\n"
-)
-
-cat(
-  "PNG size in bytes:",
-  file.info(figure_file)$size,
-  "\n"
-)
-
-cat(
-  "PDF created:",
-  file.exists(
-    "figures/Figure4_major_allele_distribution.pdf"
+figure_file_validation <- tibble::tibble(
+  figure_file = c(
+    figure_png,
+    figure_pdf
   ),
-  "\n"
+  file_exists = file.exists(
+    c(
+      figure_png,
+      figure_pdf
+    )
+  ),
+  file_size_bytes = file.info(
+    c(
+      figure_png,
+      figure_pdf
+    )
+  )$size
 )
+
+print(
+  figure_file_validation,
+  n = Inf
+)
+
+if (!all(figure_file_validation$file_exists)) {
+  warning(
+    "One or more Figure 4 output files were not created."
+  )
+}
 
 # -----------------------------------------------------------------------------
 # Figure legend:
