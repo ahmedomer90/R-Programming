@@ -27,6 +27,7 @@ Validation criteria:
 | 15_visualisation_LOH_patterns.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 16_export_session_info.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 17_figure4_major_allele_distribution.R | ✅ | ✅ | ✅ | ✅ Validated |
+| 18_figure6_sample_category_heatmap.R | ✅ | ✅ | ✅ | ✅ Validated |
 
 ---
 
@@ -247,4 +248,14 @@ Validation criteria:
   - `figures/Figure4_major_allele_distribution.png`
   - `figures/Figure4_major_allele_distribution.pdf`
  
+### Script 18 – Figure 6: Sample–Category LOH Heatmap
 
+- Reproduced Dissertation Figure 6 as a heatmap showing the number of LOH fragments in each category for every tumour-region sample.
+- Used the validated sample-category summary produced by Script 10.
+- Validation confirmed:
+  - Tumour-region samples = **434**
+  - LOH categories = **8**
+  - Sample-category combinations = **3,472**
+  - Total LOH fragments represented = **16,525**
+  - PNG and PDF figure files were generated successfully with non-zero file sizes.
+- Low fragment counts are displayed in light blue and higher counts in dark blue.
