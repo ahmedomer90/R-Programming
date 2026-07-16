@@ -30,6 +30,7 @@ Validation criteria:
 | 18_figure6_sample_category_heatmap.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 19_figure7_fragment_size_boxplot.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 20_figure8_sample_LOH_percentage.R | ✅ | ✅ | ✅ | ✅ Validated |
+| 21_figure9_sample_category_proportions.R | ✅ | ✅ | ✅ | ✅ Validated |
 
 ---
 
@@ -299,6 +300,24 @@ Validation criteria:
   - `figures/Figure8_sample_LOH_percentage.png`
   - `figures/Figure8_sample_LOH_percentage.pdf`
  
+### Script 21 – Figure 9: Sample Category Proportions
+
+- Reproduced Dissertation Figure 9 as a 100% stacked bar chart showing the proportional composition of LOH categories 1–8 within each tumour-region sample.
+- Each sample was scaled to 100%, with coloured sections representing the proportion of fragments assigned to each LOH category.
+- Samples were ordered from the smallest total LOH fragment count on the left to the largest on the right, following the figure legend.
+- Validation confirmed:
+  - Tumour-region samples = **434**
+  - LOH categories = **8**
+  - Sample-category combinations = **3,472**
+  - Total LOH fragments = **16,525**
+  - Category proportions summed to **1** within every sample.
+  - Ascending sample-total order was confirmed.
+  - Category-leading samples were identified successfully.
+  - PNG and PDF outputs were generated with non-zero file sizes.
+- Outputs were saved as:
+  - `figures/Figure9_sample_category_proportions.png`
+  - `figures/Figure9_sample_category_proportions.pdf`
+
 
 
 
