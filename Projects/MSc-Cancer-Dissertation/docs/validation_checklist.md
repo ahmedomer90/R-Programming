@@ -26,6 +26,7 @@ Validation criteria:
 | 14_cancer_gene_filtering.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 15_visualisation_LOH_patterns.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 16_export_session_info.R | ✅ | ✅ | ✅ | ✅ Validated |
+| 17_figure4_major_allele_distribution.R | ✅ | ✅ | ✅ | ✅ Validated |
 
 ---
 
@@ -220,3 +221,30 @@ Validation criteria:
   - macOS Tahoe 26.3
   - Europe/London time zone
 - This script completes the reproducible analysis pipeline.
+
+### Script 17 – Figure 4: Major-Allele Copy-Number Distributions
+
+- Reproduced Dissertation Figure 4 as a three-panel histogram figure.
+- Generated:
+  - **Panel A:** Major-allele copy-number distribution in LOH fragments.
+  - **Panel B:** Major-allele copy-number distribution in all ASCAT fragments.
+  - **Panel C:** Major-allele copy-number distribution in non-LOH fragments.
+- Used blue histogram bars with black outlines and the original grey `ggplot2` background to closely match the dissertation figure.
+- Reproduced the dissertation layout:
+  - Panel A centred at the top.
+  - Panel B positioned at the bottom left.
+  - Panel C positioned at the bottom right.
+- Validation confirmed:
+  - LOH fragments represented in Panel A = **16,525**
+  - All fragments represented in Panel B = **55,515**
+  - Non-LOH fragments represented in Panel C = **38,990**
+  - `nMajor` range in LOH fragments = **0–81**
+  - `nMajor` range in all fragments = **0–97**
+  - `nMajor` range in non-LOH fragments = **0–97**
+  - PNG and PDF figure files were generated successfully with non-zero file sizes.
+  - Panel labels **A**, **B**, and **C** were visually inspected and confirmed to be positioned correctly.
+- Outputs were saved as:
+  - `figures/Figure4_major_allele_distribution.png`
+  - `figures/Figure4_major_allele_distribution.pdf`
+ 
+
