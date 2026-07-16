@@ -28,6 +28,7 @@ Validation criteria:
 | 16_export_session_info.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 17_figure4_major_allele_distribution.R | ✅ | ✅ | ✅ | ✅ Validated |
 | 18_figure6_sample_category_heatmap.R | ✅ | ✅ | ✅ | ✅ Validated |
+| 19_figure7_fragment_size_boxplot.R | ✅ | ✅ | ✅ | ✅ Validated |
 
 ---
 
@@ -259,3 +260,24 @@ Validation criteria:
   - Total LOH fragments represented = **16,525**
   - PNG and PDF figure files were generated successfully with non-zero file sizes.
 - Low fragment counts are displayed in light blue and higher counts in dark blue.
+
+### Script 19 – Figure 7: Fragment-Size Boxplot
+
+- Reproduced Dissertation Figure 7 as a jittered boxplot showing total fragment sizes across LOH categories 1–8 and the non-LOH group.
+- Used the validated sample-category fragment-size summary for LOH categories.
+- Calculated total non-LOH fragment size for each tumour-region sample and represented these observations as the `"none"` category.
+- Displayed:
+  - White boxplots with black outlines
+  - Semi-transparent black jittered points
+  - Scientific notation on the y-axis
+  - Categories ordered as `1` through `8`, followed by `"none"`
+- Validation confirmed:
+  - Nine groups were displayed: eight LOH categories and one non-LOH group.
+  - No negative total fragment sizes were detected.
+  - PNG and PDF figure files were generated successfully with non-zero file sizes.
+  - The figure was visually inspected and confirmed to reproduce the expected dissertation pattern, including the substantially larger total fragment sizes in the `"none"` group.
+- Outputs were saved as:
+  - `figures/Figure7_fragment_size_boxplot.png`
+  - `figures/Figure7_fragment_size_boxplot.pdf`
+ 
+  
