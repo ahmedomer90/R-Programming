@@ -7,5 +7,5 @@
 # Refactored for reproducibility and GitHub portfolio (2026)
 # -----------------------------------------------------------------------------
 
-# 06_cochran_armitage_test.R
-# Purpose: test for a trend across ordered LOH
+# 05_category_summary.R
+

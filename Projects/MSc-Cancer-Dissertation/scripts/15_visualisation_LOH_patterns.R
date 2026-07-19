@@ -1,3 +1,6 @@
+
+### One part is intenionally removed ###
+
 # -----------------------------------------------------------------------------
 # Original MSc Cancer Dissertation analysis (2021)
 # Refactored for reproducibility and GitHub portfolio (2026)
@@ -17,10 +20,6 @@ library(ggplot2)
 
 loh_segments <- readRDS(
   "data/processed/loh_segments_fragment_sizes.rds"
-)
-
-category_clonality_summary <- readRDS(
-  "data/processed/category_clonality_summary.rds"
 )
 
 loh_chromosome_clonality_summary <- readRDS(
@@ -54,18 +53,6 @@ required_category_columns <- c(
   "count",
   "proportion"
 )
-
-if (
-  !all(
-    required_category_columns %in%
-    names(category_clonality_summary)
-  )
-) {
-  stop(
-    "The category-clonality summary is missing one or more ",
-    "required columns."
-  )
-}
 
 required_chromosome_columns <- c(
   "chr",
@@ -114,23 +101,6 @@ loh_segments <- loh_segments %>%
     category = factor(
       category,
       levels = as.character(1:8)
-    )
-  )
-
-category_clonality_summary <-
-  category_clonality_summary %>%
-  dplyr::mutate(
-    category = factor(
-      category,
-      levels = as.character(1:8)
-    ),
-    clonality = factor(
-      clonality,
-      levels = c(
-        "clonal",
-        "subclonal",
-        "none"
-      )
     )
   )
 
@@ -201,41 +171,7 @@ ggsave(
 )
 
 # -----------------------------------------------------------------------------
-# Plot 2: LOH category by clonality proportion
-# -----------------------------------------------------------------------------
-
-plot_category_clonality <-
-  category_clonality_summary %>%
-  ggplot(
-    aes(
-      x = category,
-      y = proportion,
-      fill = clonality
-    )
-  ) +
-  geom_col() +
-  scale_y_continuous(
-    labels = scales::percent
-  ) +
-  labs(
-    title = "Clonality proportions by LOH category",
-    x = "LOH category",
-    y = "Proportion",
-    fill = "Clonality"
-  ) +
-  theme_bw()
-
-ggsave(
-  filename =
-    "figures/LOH_category_clonality_proportion.png",
-  plot = plot_category_clonality,
-  width = 8,
-  height = 5,
-  dpi = 300
-)
-
-# -----------------------------------------------------------------------------
-# Plot 3: Chromosome by clonality proportion
+# Plot 2: Chromosome by clonality proportion
 # -----------------------------------------------------------------------------
 
 plot_chromosome_clonality <-
@@ -342,7 +278,6 @@ ggsave(
 
 expected_figure_files <- c(
   "figures/LOH_category_distribution.png",
-  "figures/LOH_category_clonality_proportion.png",
   "figures/chromosome_clonality_proportion.png",
   "figures/fragment_size_by_LOH_category.png",
   "figures/sample_clonality_proportion.png"
