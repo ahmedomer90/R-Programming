@@ -12,3 +12,6 @@
 
 # Microsoft Office temporary files
 ~$*
+
+# Large downloaded datasets
+Data/GSE85217_M_exp_763_MB_SubtypeStudy_TaylorLab.txt
