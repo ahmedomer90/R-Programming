@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# RStudio project-specific files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Temporary and backup files
+*~
