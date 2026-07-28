@@ -9,3 +9,6 @@
 
 # Temporary and backup files
 *~
+
+# Microsoft Office temporary files
+~$*
