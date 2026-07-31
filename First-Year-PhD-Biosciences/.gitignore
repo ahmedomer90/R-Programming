@@ -5,13 +5,20 @@
 .Rproj.user/
 .Rhistory
 .RData
+.RDataTmp
 .Ruserdata
 
 # Temporary and backup files
 *~
-
-# Microsoft Office temporary files
 ~$*
 
 # Large downloaded datasets
 Data/GSE85217_M_exp_763_MB_SubtypeStudy_TaylorLab.txt
+Data/Mset.GM.RDS
+Data/mSet_Cerebellum_GSE54880.rds
+Data/CNVdata_Cerebellum_GSE54880.rds
+Data/GSE54880/
+
+# Generated analysis output
+Figures/
+Results/
