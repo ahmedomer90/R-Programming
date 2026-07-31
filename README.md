@@ -1,42 +1,54 @@
 # R Programming for Bioinformatics
 
-Welcome to my R programming portfolio. This repository documents my work in bioinformatics, cancer research, genomics, statistical analysis, and data visualisation using R.
+This repository serves as a portfolio of R-based research projects in bioinformatics, cancer genomics, statistical analysis, and reproducible computational workflows.
 
-## About this repository
+The repository documents the development of analytical pipelines, statistical methods, and bioinformatics workflows using R, with an emphasis on reproducibility, version control, and transparent research practices.
+
+---
+
+## Featured Research Projects
+
+### First-Year-PhD-Biosciences
+
+Research project focusing on computational analyses of medulloblastoma using DNA methylation data, copy number variation (Conumee), subgroup-specific analyses, and reproducible bioinformatics pipelines developed in R.
+
+---
+
+### MSc-Cancer-Dissertation
+
+Research project based on my MSc Cancer dissertation.
+
+The original code was stored on a previous computer that is no longer accessible. This project is therefore being reconstructed from the submitted dissertation, methodology, figures, and published results, with an emphasis on reproducibility, improved analytical workflows, and clear documentation.
+
+---
+
+## About this Repository
 
 This repository contains R projects related to:
 
 - Bioinformatics
-- Cancer research
-- Genomics
+- Cancer genomics
+- DNA methylation analysis
 - Statistical analysis
 - Data visualisation
+- Reproducible research
 
-## Current project
+Large raw datasets and generated analysis outputs are intentionally excluded from this repository to keep it lightweight and reproducible. All analytical workflows are provided through documented R scripts.
 
-### Reconstruction of my MSc Cancer Dissertation
-
-This repository contains a reconstructed and improved R workflow based on my MSc Cancer dissertation project.
-
-This repository contains a reconstructed and improved R workflow based on my MSc Cancer dissertation.
-
-The original code was stored on a previous computer that is no longer accessible. This project is therefore being rebuilt from the submitted dissertation, methodology, figures, and published results, with an emphasis on reproducibility and clear documentation.
-
-## Future projects
-
-- DNA methylation analysis
-- Gene expression analysis
-- Machine learning in R
-- Quarto reports
+---
 
 ## Software
+
+This repository primarily uses:
 
 - R
 - RStudio
 - Git
 - GitHub
 
-## Current learning
+---
+
+## Current Learning
 
 I am currently expanding my skills in:
 
@@ -46,8 +58,24 @@ I am currently expanding my skills in:
 - Quarto
 - Reproducible research
 
+---
+
+## Future Projects
+
+This repository is intended to grow as a long-term research portfolio.
+
+Potential future projects include:
+
+- Gene expression analysis
+- Machine learning in R
+- Multi-omics data integration
+- Quarto reports
+- Additional bioinformatics research projects
+
+---
+
 ## Contact
 
-GitHub: @ahmedomer90
+**GitHub:** https://github.com/ahmedomer90
 
-Email: ahmedomer90@hotmail.co.uk
+**Email:** ahmedomer90@hotmail.co.uk
